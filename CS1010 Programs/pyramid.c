@@ -44,13 +44,13 @@ int main(void) {
 int maxPathValue(int arr[][MAX_ROWS], int size) {
     int a, b;
 
-    for (a = size-2; a >= 0 ; a--) {
-        for (b = 0; b <= a; b++) {
-            arr[a][b] += fmax((arr[a+1][b]), (arr[a+1][b+1]));
-        }
-    } return arr[0][0];
-}
-
+    for (a = size-2; a >= 0 ; a--) {					// In this loop, the function looks at every element
+        for (b = 0; b <= a; b++) {					// of the arrray, and for the number at arr[i][j], 
+            arr[a][b] += fmax((arr[a+1][b]), (arr[a+1][b+1]));		// it checks the number below it and the number to its
+        }								// south-east, and adds the greater of 2 numbers to the 
+    } return arr[0][0];							// number at arr[i][j]. At the end, the maximum path value
+}									// is equal to the number at arr[0][0] since this program	
+									// computes from the bottom up.
 // Read data into 2-dimensional triangular array arr,
 // and return the number of rows.
 int scanTriangularArray(int arr[][MAX_ROWS]){
